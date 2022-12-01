@@ -8,5 +8,6 @@
   "run": true,
   "min_sdk_version": "Tiramisu",
   "vendor-available": true,
+  "tests": true,
   "features": "alloc,zeroize_derive"
 }
