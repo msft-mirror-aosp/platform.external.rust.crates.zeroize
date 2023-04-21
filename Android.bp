@@ -36,9 +36,9 @@ rust_library {
     host_supported: true,
     crate_name: "zeroize",
     cargo_env_compat: true,
-    cargo_pkg_version: "1.5.7",
+    cargo_pkg_version: "1.6.0",
     srcs: ["src/lib.rs"],
-    edition: "2018",
+    edition: "2021",
     features: [
         "alloc",
         "zeroize_derive",
@@ -49,6 +49,7 @@ rust_library {
         "com.android.uwb",
         "com.android.virt",
     ],
+    product_available: true,
     vendor_available: true,
     min_sdk_version: "Tiramisu",
 }
@@ -57,10 +58,10 @@ rust_defaults {
     name: "zeroize_test_defaults",
     crate_name: "zeroize",
     cargo_env_compat: true,
-    cargo_pkg_version: "1.5.7",
+    cargo_pkg_version: "1.6.0",
     test_suites: ["general-tests"],
     auto_gen_config: true,
-    edition: "2018",
+    edition: "2021",
     features: [
         "alloc",
         "zeroize_derive",
