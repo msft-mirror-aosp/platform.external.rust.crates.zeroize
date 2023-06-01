@@ -46,8 +46,31 @@ rust_library {
     proc_macros: ["libzeroize_derive"],
     apex_available: [
         "//apex_available:platform",
-        "com.android.uwb",
-        "com.android.virt",
+        "//apex_available:anyapex",
+    ],
+    product_available: true,
+    vendor_available: true,
+    min_sdk_version: "Tiramisu",
+}
+
+rust_library_rlib {
+    name: "libzeroize_nostd",
+    crate_name: "zeroize",
+    cargo_env_compat: true,
+    cargo_pkg_version: "1.6.0",
+    srcs: ["src/lib.rs"],
+    edition: "2021",
+    features: ["zeroize_derive"],
+    proc_macros: ["libzeroize_derive"],
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    prefer_rlib: true,
+    no_stdlibs: true,
+    stdlibs: [
+        "libcompiler_builtins.rust_sysroot",
+        "libcore.rust_sysroot",
     ],
     product_available: true,
     vendor_available: true,
@@ -91,25 +114,3 @@ rust_test {
         unit_test: true,
     },
 }
-
-rust_library_rlib {
-    name: "libzeroize_nostd",
-    crate_name: "zeroize",
-    cargo_env_compat: true,
-    cargo_pkg_version: "1.5.7",
-    srcs: ["src/lib.rs"],
-    edition: "2018",
-    proc_macros: ["libzeroize_derive"],
-    prefer_rlib: true,
-    no_stdlibs: true,
-    stdlibs: [
-        "libcompiler_builtins.rust_sysroot",
-        "libcore.rust_sysroot",
-    ],
-    features: [
-        "zeroize_derive",
-    ],
-    vendor_available: true,
-    min_sdk_version: "Tiramisu",
-}
-
