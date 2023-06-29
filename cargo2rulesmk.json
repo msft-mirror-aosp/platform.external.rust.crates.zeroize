@@ -1,0 +1,3 @@
+{
+  "features": "alloc,zeroize_derive"
+}
