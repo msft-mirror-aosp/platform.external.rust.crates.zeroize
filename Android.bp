@@ -60,7 +60,10 @@ rust_library_rlib {
     cargo_pkg_version: "1.6.0",
     srcs: ["src/lib.rs"],
     edition: "2021",
-    features: ["zeroize_derive"],
+    features: [
+        "alloc",
+        "zeroize_derive",
+    ],
     proc_macros: ["libzeroize_derive"],
     apex_available: [
         "//apex_available:platform",
@@ -69,6 +72,7 @@ rust_library_rlib {
     prefer_rlib: true,
     no_stdlibs: true,
     stdlibs: [
+        "liballoc.rust_sysroot",
         "libcompiler_builtins.rust_sysroot",
         "libcore.rust_sysroot",
     ],
