@@ -3,17 +3,17 @@
   "run": true,
   "min_sdk_version": "Tiramisu",
   "vendor-available": true,
+  "features": "alloc,zeroize_derive",
   "variants": [
     {
-      "features": "alloc,zeroize_derive",
       "tests": true
     },
     {
-      "features": "zeroize_derive",
       "force-rlib": true,
       "no-host": true,
       "suffix": "_nostd",
-      "no-std": true
+      "no-std": true,
+      "alloc": true
     }
   ]
 }
