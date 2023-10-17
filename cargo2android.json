@@ -1,10 +1,19 @@
 {
-  "apex-available": [
-    "//apex_available:platform",
-    "com.android.virt"
-  ],
   "device": true,
   "run": true,
+  "min_sdk_version": "Tiramisu",
   "vendor-available": true,
-  "features": "alloc,zeroize_derive"
+  "features": "alloc,zeroize_derive",
+  "variants": [
+    {
+      "tests": true
+    },
+    {
+      "force-rlib": true,
+      "no-host": true,
+      "suffix": "_nostd",
+      "no-std": true,
+      "alloc": true
+    }
+  ]
 }
